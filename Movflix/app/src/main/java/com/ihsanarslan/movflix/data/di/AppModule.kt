@@ -1,5 +1,9 @@
 package com.ihsanarslan.movflix.data.di
 
+import android.content.Context
+import androidx.room.Room
+import com.ihsanarslan.movflix.data.local.MovieDatabase
+import com.ihsanarslan.movflix.data.local.dao.MovieDAO
 import com.ihsanarslan.movflix.data.remote.MovieAPI
 import com.ihsanarslan.movflix.domain.repository.MovieRepository
 import com.ihsanarslan.movflix.data.repository.MovieRepositoryImpl
@@ -7,6 +11,7 @@ import com.ihsanarslan.movflix.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,5 +35,21 @@ object AppModule {
     @Singleton
     fun provideMovieRepository(api : MovieAPI) : MovieRepository {
         return MovieRepositoryImpl(api = api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieDatabase(@ApplicationContext context: Context): MovieDatabase {
+        return Room.databaseBuilder(
+            context.applicationContext,
+            MovieDatabase::class.java,
+            "favorite_movies"
+        ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieDetailDao(database: MovieDatabase): MovieDAO {
+        return database.movieDAO()
     }
 }
