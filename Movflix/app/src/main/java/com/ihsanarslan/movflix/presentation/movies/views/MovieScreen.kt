@@ -6,15 +6,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.*
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
@@ -29,8 +26,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ihsanarslan.movflix.presentation.Screen
-import com.ihsanarslan.movflix.presentation.movies.MoviesEvent
-import com.ihsanarslan.movflix.presentation.movies.MoviesViewModel
+import com.ihsanarslan.movflix.presentation.movies.view_model.movies.MoviesEvent
+import com.ihsanarslan.movflix.presentation.movies.view_model.movies.MoviesViewModel
 
 @Composable
 fun MovieScreen(

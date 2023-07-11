@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ihsanarslan.movflix.presentation.movies.views.movie_detail.views.MovieDetailScreen
+import com.ihsanarslan.movflix.presentation.movies.view_model.movie_detail.views.MovieDetailScreen
 import com.ihsanarslan.movflix.presentation.movies.views.MovieScreen
 import com.ihsanarslan.movflix.presentation.ui.theme.MovflixTheme
 import com.ihsanarslan.movflix.util.Constants.IMDB_ID

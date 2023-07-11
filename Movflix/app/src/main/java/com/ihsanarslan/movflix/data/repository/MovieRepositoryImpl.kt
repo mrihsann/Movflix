@@ -1,5 +1,6 @@
 package com.ihsanarslan.movflix.data.repository
 
+import com.ihsanarslan.movflix.data.local.dao.MovieDAO
 import com.ihsanarslan.movflix.data.remote.MovieAPI
 import com.ihsanarslan.movflix.data.remote.dto.MovieDetailDto
 import com.ihsanarslan.movflix.data.remote.dto.MoviesDto
@@ -14,5 +15,6 @@ class MovieRepositoryImpl @Inject constructor(private val api: MovieAPI): MovieR
     override suspend fun getMovieDetail(imdbID: String): MovieDetailDto {
         return api.getMovieDetail(imdbID = imdbID)
     }
+
 
 }

@@ -17,5 +17,8 @@ interface MovieDAO {
     suspend fun delete(movieDetail: MovieDetail)
 
     @Query("SELECT*FROM Movies")
-    suspend fun getAllMovie(): Flow<List<MovieDetail>>
+    suspend fun getAllMovie(): List<MovieDetail>
+
+    @Query("SELECT * FROM Movies WHERE uuid = :movieId")
+    fun getMovie(movieId: Int): MovieDetail
 }
