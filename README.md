@@ -1,4 +1,6 @@
-# Movflix
+# Movflix v1
+
+### Note: Updates are in progress for the v2 version.
 
 # Built With 🛠
 
