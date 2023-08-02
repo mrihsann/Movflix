@@ -11,7 +11,6 @@ import java.io.IOError
 import javax.inject.Inject
 
 class GetMoviesUseCase @Inject constructor(private val repository : MovieRepository) {
-    //Use case -> only one major public function, one feature, single responsibility
     fun executeGetMovies(search: String) : Flow<Resource<List<Movie>>> = flow {
         try {
             emit(Resource.Loading())
@@ -27,5 +26,4 @@ class GetMoviesUseCase @Inject constructor(private val repository : MovieReposit
             emit(Resource.Error(message = "Could not reach internet"))
         }
     }
-
 }

@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ihsanarslan.movflix.presentation.movies.view_model.movie_detail.views.MovieDetailScreen
-import com.ihsanarslan.movflix.presentation.movies.views.MovieScreen
+import com.ihsanarslan.movflix.presentation.movies.views.movie_detail.MovieDetailScreen
+import com.ihsanarslan.movflix.presentation.movies.views.movies.MovieScreen
 import com.ihsanarslan.movflix.presentation.ui.theme.MovflixTheme
 import com.ihsanarslan.movflix.util.Constants.IMDB_ID
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+
                     val navController = rememberNavController()
                     NavHost(navController = navController,
                         startDestination = Screen.MovieScreen.route
@@ -38,6 +39,7 @@ class MainActivity : ComponentActivity() {
                             MovieDetailScreen(navController = navController)
                         }
                     }
+
                 }
             }
         }

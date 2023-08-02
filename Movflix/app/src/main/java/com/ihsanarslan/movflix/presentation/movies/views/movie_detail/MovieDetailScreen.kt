@@ -1,4 +1,4 @@
-package com.ihsanarslan.movflix.presentation.movies.view_model.movie_detail.views
+package com.ihsanarslan.movflix.presentation.movies.views.movie_detail
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -11,13 +11,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
@@ -43,6 +45,9 @@ fun MovieDetailScreen(
 ){
     val state = movieDetailViewModel.state.value
     val scrollState = rememberScrollState()
+    val isLiked = remember { mutableStateOf(false) } // Başlangıçta beğeni durumu false (dislike)
+
+
     Box(modifier = Modifier.fillMaxSize()) {
 
         Box {
@@ -134,19 +139,36 @@ fun MovieDetailScreen(
                                     fontSize = 16.sp,
                                     modifier = Modifier.padding(start = 20.dp, end = 20.dp,top = 5.dp)
                                 )
+                                //favori buton kısmı burada
+                                state.movie?.let {
+                                    movieDetailViewModel.searchMovie(it.Title)
+                                    isLiked.value = movieDetailViewModel.isMovieFound.value
+                                    Button(
+                                        onClick = {
+                                            isLiked.value = !isLiked.value
+                                            movieDetailViewModel.favMovie(isLiked.value,it,it.Title)
+                                            movieDetailViewModel.getMovie()
+                                        },
+                                        shape = RoundedCornerShape(8.dp),
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(16.dp)
+                                            .background(Color.Red),
+                                        colors = ButtonDefaults.buttonColors(Color.Red),
+                                        contentPadding = PaddingValues(16.dp)
+                                    ) {
+                                        Text(
+                                            text = if (isLiked.value) "Remove from Watch List" else "Add to Watch List",
+                                            color = White,
+                                            style = MaterialTheme.typography.bodyLarge
+                                        )
+                                    }
+                                }
+
                             }
                         }
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .offset((-40).dp, (-65).dp),
-                            contentAlignment = Alignment.CenterEnd
-                        ) {
-                            PlayButton()
-                        }
+
                     }
-
-
                 }
             }
         }
@@ -163,25 +185,8 @@ fun MovieDetailScreen(
         }
 
     }
-
-
 }
 
-
-@Composable
-fun PlayButton() {
-    Button(
-        onClick = { /* Oynatma işlemi burada gerçekleştirilebilir */ },
-        modifier = Modifier.size(65.dp),
-        colors = ButtonDefaults.buttonColors(Color.Red)
-    ) {
-        Icon(
-            Icons.Default.Star,
-            contentDescription = "Play Button",
-            tint = White
-        )
-    }
-}
 
 @Composable
 fun RatingBar(
@@ -202,5 +207,27 @@ fun RatingBar(
                 tint = if (index < filledStars) ratingColor else emptyColor
             )
         }
+    }
+}
+
+@Composable
+fun AddToWatchListButton(
+    onClick: () -> Unit
+) {
+    Button(
+        onClick = onClick,
+        shape = RoundedCornerShape(8.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .background(Color.Red),
+        colors = ButtonDefaults.buttonColors(Color.Red),
+        contentPadding = PaddingValues(16.dp)
+    ) {
+        Text(
+            text = "Add to Watch List",
+            color = Color.White,
+            style = MaterialTheme.typography.bodyLarge
+        )
     }
 }

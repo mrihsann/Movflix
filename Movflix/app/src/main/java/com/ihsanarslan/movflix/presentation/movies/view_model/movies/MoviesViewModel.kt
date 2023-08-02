@@ -17,7 +17,7 @@ class MoviesViewModel @Inject constructor(
     private val getMoviesUseCase: GetMoviesUseCase
 ) : ViewModel() {
 
-    private val _state = mutableStateOf<MoviesState>(MoviesState())
+    private val _state = mutableStateOf(MoviesState())
     val state : State<MoviesState> = _state
 
     private var job : Job? = null
@@ -52,5 +52,4 @@ class MoviesViewModel @Inject constructor(
             }
         }
     }
-
 }

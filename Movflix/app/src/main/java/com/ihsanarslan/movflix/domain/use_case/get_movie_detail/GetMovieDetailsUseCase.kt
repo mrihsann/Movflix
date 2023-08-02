@@ -11,7 +11,6 @@ import java.io.IOError
 import javax.inject.Inject
 
 class GetMovieDetailsUseCase @Inject constructor(private val repository : MovieRepository) {
-    //Use case -> only one major public function, one feature, single responsibility
 
     fun executeGetMovieDetails(imdbId: String) : Flow<Resource<MovieDetail>> = flow {
         try {

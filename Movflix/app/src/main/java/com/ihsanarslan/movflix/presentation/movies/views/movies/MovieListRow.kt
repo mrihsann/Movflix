@@ -1,4 +1,4 @@
-package com.ihsanarslan.movflix.presentation.movies.views
+package com.ihsanarslan.movflix.presentation.movies.views.movies
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -11,10 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.Magenta
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -30,6 +28,8 @@ fun MovieListRow(
     movie : Movie,
     onItemClick : (Movie) -> Unit
 ) {
+
+
     Card(modifier = Modifier
         .fillMaxWidth()
         .clickable { onItemClick(movie) }

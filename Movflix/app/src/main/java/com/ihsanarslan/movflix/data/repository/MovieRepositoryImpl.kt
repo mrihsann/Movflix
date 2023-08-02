@@ -1,6 +1,5 @@
 package com.ihsanarslan.movflix.data.repository
 
-import com.ihsanarslan.movflix.data.local.dao.MovieDAO
 import com.ihsanarslan.movflix.data.remote.MovieAPI
 import com.ihsanarslan.movflix.data.remote.dto.MovieDetailDto
 import com.ihsanarslan.movflix.data.remote.dto.MoviesDto

@@ -7,8 +7,6 @@ import androidx.room.RoomDatabase
 import com.ihsanarslan.movflix.data.local.dao.MovieDAO
 import com.ihsanarslan.movflix.domain.model.MovieDetail
 
-
-
 @Database(entities = [MovieDetail::class], version = 1)
 abstract class MovieDatabase : RoomDatabase() {
 
@@ -17,16 +15,18 @@ abstract class MovieDatabase : RoomDatabase() {
     companion object {
         private var INSTANCE: MovieDatabase? = null
 
+
         fun getInstance(context: Context): MovieDatabase {
             if (INSTANCE == null) {
                 synchronized(MovieDatabase::class) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        MovieDatabase::class.java, "favorite_movies"
+                        MovieDatabase::class.java, "my_favorites"
                     ).build()
                 }
             }
             return INSTANCE!!
         }
+
     }
 }

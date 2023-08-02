@@ -1,11 +1,9 @@
 package com.ihsanarslan.movflix.data.local.dao
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.ihsanarslan.movflix.domain.model.MovieDetail
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieDAO {
@@ -13,12 +11,12 @@ interface MovieDAO {
     @Insert
     suspend fun insert(movieDetail: MovieDetail)
 
-    @Delete
-    suspend fun delete(movieDetail: MovieDetail)
+    @Query("DELETE FROM Movie WHERE Title = :title")
+    suspend fun deleteByTitle(title: String)
 
-    @Query("SELECT*FROM Movies")
+    @Query("SELECT*FROM Movie")
     suspend fun getAllMovie(): List<MovieDetail>
 
-    @Query("SELECT * FROM Movies WHERE uuid = :movieId")
-    fun getMovie(movieId: Int): MovieDetail
+    @Query("SELECT * FROM Movie WHERE Title = :title")
+    suspend fun getMovieByTitle(title: String): MovieDetail
 }

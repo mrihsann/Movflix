@@ -1,4 +1,4 @@
-package com.ihsanarslan.movflix.presentation.movies.views
+package com.ihsanarslan.movflix.presentation.movies.views.movies
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -59,8 +59,6 @@ fun MovieScreen(
             }
         }
 
-
-
         if (state.error.isNotBlank()) {
             Text(text = state.error,
                 color = MaterialTheme.colorScheme.error,
@@ -75,6 +73,7 @@ fun MovieScreen(
         if(state.isLoading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
+
     }
 
 

@@ -93,6 +93,13 @@ dependencies {
     //ROOM
     implementation "androidx.room:room-runtime:2.5.2"
     annotationProcessor "androidx.room:room-compiler:2.5.2"
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.5.2")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:2.5.2")
+
+    //animadet bottom navigation bar
+    implementation("com.exyte:animated-navigation-bar:1.0.0")
 }
 
 // Allow references to generated code

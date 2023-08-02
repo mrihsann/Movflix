@@ -43,7 +43,7 @@ object AppModule {
         return Room.databaseBuilder(
             context.applicationContext,
             MovieDatabase::class.java,
-            "favorite_movies"
+            "my_favorites"
         ).build()
     }
 

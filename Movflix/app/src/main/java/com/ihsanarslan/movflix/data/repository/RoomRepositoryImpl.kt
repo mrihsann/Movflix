@@ -11,10 +11,19 @@ class RoomRepositoryImpl @Inject constructor(private val dao: MovieDAO): RoomRep
     }
 
     override suspend fun insertRoom(movieDetail: MovieDetail) {
-        return dao.insert(movieDetail=movieDetail)
+        return dao.insert(movieDetail)
     }
 
-    override suspend fun deleteRoom(movieDetail: MovieDetail) {
-        return dao.delete(movieDetail = movieDetail)
+    override suspend fun deleteByTitleRoom(title: String) {
+        return dao.deleteByTitle(title)
     }
+
+    override suspend fun searchRoom(title: String): MovieDetail? {
+        return dao.getMovieByTitle(title)
+    }
+
+    override suspend fun getMovieRoom(title: String): MovieDetail {
+        return dao.getMovieByTitle(title)
+    }
+
 }
