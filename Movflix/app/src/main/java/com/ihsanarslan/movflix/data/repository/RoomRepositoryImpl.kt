@@ -26,4 +26,8 @@ class RoomRepositoryImpl @Inject constructor(private val dao: MovieDAO): RoomRep
         return dao.getMovieByTitle(title)
     }
 
+    override suspend fun getMovieRoomID(uuid: Int): MovieDetail {
+        return dao.getMovieByID(uuid)
+    }
+
 }

@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.ihsanarslan.movflix.presentation.movies.views.BottomMenu
 import com.ihsanarslan.movflix.presentation.Screen
 import com.ihsanarslan.movflix.presentation.movies.view_model.movies.MoviesEvent
 import com.ihsanarslan.movflix.presentation.movies.view_model.movies.MoviesViewModel
@@ -37,9 +38,11 @@ fun MovieScreen(
 
     val state = viewModel.state.value
 
-    Box(modifier = Modifier.fillMaxSize().background(Color(0xFFF5F5F5))) {
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(Color(0xFFF5F5F5))) {
 
-        Column() {
+        Column{
             MovieSearchBar(modifier = Modifier
                 .fillMaxWidth()
                 .padding(20.dp),
@@ -58,6 +61,7 @@ fun MovieScreen(
                 }
             }
         }
+        BottomMenu(navController)
 
         if (state.error.isNotBlank()) {
             Text(text = state.error,

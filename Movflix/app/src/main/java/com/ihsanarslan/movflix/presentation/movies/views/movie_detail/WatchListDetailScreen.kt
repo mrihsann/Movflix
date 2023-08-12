@@ -9,8 +9,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -36,22 +34,22 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
-import com.ihsanarslan.movflix.presentation.movies.view_model.movie_detail.MovieDetailViewModel
+import com.ihsanarslan.movflix.presentation.movies.view_model.watch_list.WatchListDetailViewModel
 
 
 @Composable
-fun MovieDetailScreen(
-    movieDetailViewModel: MovieDetailViewModel = hiltViewModel(), navController: NavController
+fun WatchListDetailScreen(
+    movieDetailViewModel: WatchListDetailViewModel = hiltViewModel(),
+    navController: NavController
 ){
-    val state = movieDetailViewModel.state.value
+
     val scrollState = rememberScrollState()
     val isLiked = remember { mutableStateOf(false) } // Başlangıçta beğeni durumu false (dislike)
-
 
     Box(modifier = Modifier.fillMaxSize()) {
 
         Box {
-            state.movie?.let {
+            movieDetailViewModel.movieDetailRoom?.let{
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -140,7 +138,7 @@ fun MovieDetailScreen(
                                     modifier = Modifier.padding(start = 20.dp, end = 20.dp,top = 5.dp)
                                 )
                                 //favori buton kısmı burada
-                                state.movie?.let {
+                                movieDetailViewModel.movieDetailRoom?.let {
                                     movieDetailViewModel.searchMovie(it.Title)
                                     isLiked.value = movieDetailViewModel.isMovieFound.value
                                     Button(
@@ -183,28 +181,5 @@ fun MovieDetailScreen(
             )
         }
 
-    }
-}
-
-
-@Composable
-fun RatingBar(
-    rating: Float,
-    maxRating: Float = 10f,
-    starCount: Int = 5,
-    ratingColor: Color = Color.Red,
-    emptyColor: Color = Color.Gray,
-    modifier: Modifier = Modifier
-) {
-    val filledStars = (rating / maxRating * starCount).toInt()
-
-    Row(modifier = modifier) {
-        repeat(starCount) { index ->
-            Icon(
-                imageVector = if (index < filledStars) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                contentDescription = null,
-                tint = if (index < filledStars) ratingColor else emptyColor
-            )
-        }
     }
 }

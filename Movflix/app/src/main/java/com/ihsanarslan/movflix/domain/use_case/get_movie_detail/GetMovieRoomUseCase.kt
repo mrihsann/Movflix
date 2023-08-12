@@ -9,9 +9,9 @@ import javax.inject.Inject
 
 class GetMovieRoomUseCase @Inject constructor(private val repository : RoomRepository) {
 
-    fun executeGetMovieRoom(title: String) : Flow<MovieDetail> = flow {
+    fun executeGetMovieRoom(uuid: Int) : Flow<MovieDetail> = flow {
         try {
-            val movieDetail = repository.getMovieRoom(title)
+            val movieDetail = repository.getMovieRoomID(uuid)
             emit(movieDetail)
         } catch (e: HttpException) {
             println(e.localizedMessage)

@@ -19,4 +19,8 @@ interface MovieDAO {
 
     @Query("SELECT * FROM Movie WHERE Title = :title")
     suspend fun getMovieByTitle(title: String): MovieDetail
+
+    @Query("SELECT * FROM Movie WHERE uuid = :uuid")
+    suspend fun getMovieByID(uuid: Int): MovieDetail
+
 }

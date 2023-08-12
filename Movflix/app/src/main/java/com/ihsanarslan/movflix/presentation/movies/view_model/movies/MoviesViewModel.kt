@@ -41,6 +41,7 @@ class MoviesViewModel @Inject constructor(
                 is Resource.Loading -> {
                     _state.value = MoviesState(isLoading = true)
                 }
+
             }
         }.launchIn(viewModelScope)
     }
@@ -50,6 +51,7 @@ class MoviesViewModel @Inject constructor(
             is MoviesEvent.Search -> {
                 getMovies(event.searchString)
             }
+
         }
     }
 }

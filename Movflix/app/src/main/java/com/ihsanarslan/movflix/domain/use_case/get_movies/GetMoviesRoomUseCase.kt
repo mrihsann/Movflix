@@ -12,5 +12,4 @@ class GetMoviesRoomUseCase @Inject constructor(private val repository : RoomRepo
         val movieList = repository.getMoviesRoom()
         emit(movieList)
     }
-
 }
