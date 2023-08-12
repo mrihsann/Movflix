@@ -13,16 +13,15 @@
  - ViewModel - Stores UI-related data that isn't destroyed on UI changes.
  - Dependency Injection - Hilt - Dependency Injection Framework
  - Retrofit - A type-safe HTTP client for Android and Java.
+ - Room - SQLite-based database library for Android, used in local storage.
+ - Navigaton bar - Bottom navigation bar  with animation.
  - Coil - An image loading library for Android.
+ - OMDB Api - This api is like an imdb database.
 
 ## Screens
 
-| Home  | Detail Screen |
-| ----- | ------------ |
-|<img src="https://github.com/mrihsann/Movflix/assets/90771646/ff442fc0-467f-4e4e-b4bf-e8362a24ef2a" width="250" height="520"/>|<img src="https://github.com/mrihsann/Movflix/assets/90771646/b328b8d9-db4d-4c43-a5f7-0443472cf386" width="250" height="520"/>|
+| Home  | Detail Screen | Detail Screen | Detail Screen |
+| ----- | ------------- | ------------- | ------------- |
+|<img src="https://github.com/mrihsann/Movflix/assets/90771646/5fd9695d-9f0d-4565-bfd0-3612632a6668" width="200" height="420"/>|<img src="https://github.com/mrihsann/Movflix/assets/90771646/fb5db04f-1b27-4990-ab61-11edc771ae30" width="200" height="420"/>|<img src="https://github.com/mrihsann/Movflix/assets/90771646/1ae37ddd-7100-48de-9491-e255be0abf0d" width="200" height="420"/>|<img src="https://github.com/mrihsann/Movflix/assets/90771646/caa7f676-1b32-4ed5-9f12-9b0aedea82e3" width="200" height="420"/>|
 
-</br>
 
-| Detail Screen Video|
-
-https://github.com/mrihsann/Movflix/assets/90771646/bf5bee35-5607-4301-9bc9-43e1ede5ebe2
