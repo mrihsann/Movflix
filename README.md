@@ -20,7 +20,7 @@
 
 ## Screens
 
-| Home  | Detail Screen | Detail Screen | Detail Screen |
+| Home  | Detail Screen | Detail Screen | Watch List |
 | ----- | ------------- | ------------- | ------------- |
 |<img src="https://github.com/mrihsann/Movflix/assets/90771646/5fd9695d-9f0d-4565-bfd0-3612632a6668" width="200" height="420"/>|<img src="https://github.com/mrihsann/Movflix/assets/90771646/fb5db04f-1b27-4990-ab61-11edc771ae30" width="200" height="420"/>|<img src="https://github.com/mrihsann/Movflix/assets/90771646/1ae37ddd-7100-48de-9491-e255be0abf0d" width="200" height="420"/>|<img src="https://github.com/mrihsann/Movflix/assets/90771646/caa7f676-1b32-4ed5-9f12-9b0aedea82e3" width="200" height="420"/>|
 
